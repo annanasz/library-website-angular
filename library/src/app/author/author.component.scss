@@ -1,0 +1,71 @@
+.author-container {
+
+    background-color: #BFAC83;
+    min-height: 100%;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+
+    .image-container {
+        width: 300px;
+        height: 400px;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            margin: 20px 0 20px 40px;
+            border-radius: 5px;
+            border: 3px solid #6F4E37;
+            width: 90%;
+            height: 90%;
+            object-fit: contain;
+        }
+
+        .author-links-text {
+            display: flex;
+            text-align: center;
+        }
+    }
+
+    .link-container {
+        p {
+            margin-left: 50px;
+        }
+
+        a {
+            margin-left: 50px;
+            color: #3d2b1f;
+        }
+
+        a:hover {
+
+            color: #6F4E37;
+        }
+    }
+
+    .content-container {
+        flex-direction: column;
+        display: flex;
+        justify-content: flex-start;
+        margin-top: 50px;
+        padding-right: 50px;
+
+        p {
+            display: block;
+            margin-left: 10px;
+            font-size: 15px;
+        }
+
+        .author_name {
+            font-size: 40px;
+            margin-bottom: 30px;
+        }
+
+        .author_birth_date {
+            font-size: 25px;
+            margin-bottom: 50px;
+        }
+
+    }
+
+}

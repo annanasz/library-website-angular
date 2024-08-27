@@ -1,0 +1,29 @@
+.header-container {
+    width: 100%;
+    height: 90px;
+    background-color: rgb(214, 164, 78, 0.2);
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: 0;
+    opacity: 0.9;
+    background-image: url("/assets/images/bookshelf.jpg");
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: luminosity;
+
+    .logo {
+        font-family: 'Squirk', sans-serif;
+        font-size: 80px;
+        color: #291b11;
+        //width: 20%;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 25px;
+        padding-bottom: 20px;
+        height: fit-content;
+        text-align: center;
+        background-color: rgba(245, 245, 245, 0.8);
+        cursor: pointer;
+    }
+}

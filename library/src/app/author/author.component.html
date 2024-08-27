@@ -1,0 +1,32 @@
+<app-header></app-header>
+<div class="author-container">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="image-container">
+                <img class="author-img" *ngIf="author.photos!==undefined; else noImage"
+                    src="https://covers.openlibrary.org/a/olid/{{author.key}}-L.jpg" />
+            </div>
+            <ng-template #noImage>
+                <img class="author-img" src="assets/images/person_placeholder.jpg" alt="Book 1">
+            </ng-template>
+            <div class="row link-container">
+                <p class="author-links-text" *ngIf="author.links!==undefined || author.wikipedia!==undefined">
+                    <b>Links:</b></p>
+                <a *ngIf="author.wikipedia" href="{{author.wikipedia}}">Wikipedia</a>
+                <a *ngFor="let link of author.links;" href="{{link.url}}">{{link.title}}</a>
+            </div>
+        </div>
+        <div class="content-container col-lg-9">
+            <p class="author_name">{{author.name}}</p>
+            <p class="author_birth_date">{{author.birth_date}} - {{author.death_date}}</p>
+            <p *ngIf="author.bio!==undefined" class="author_bio"><b>Bio: </b>{{getBioValue(author.bio)}}</p>
+            <p *ngIf="author.alternate_names!==undefined" class="author_alternatenames"><b>Alternate names: </b>
+                <span *ngFor="let aname of author.alternate_names; let first=first; let last=last">
+                    {{aname}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+
+        </div>
+    </div>
+</div>

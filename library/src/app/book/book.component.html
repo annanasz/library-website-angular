@@ -1,0 +1,60 @@
+<div class="book-container">
+    <app-header></app-header>
+    <div class="row" *ngIf="book.header!==undefined">
+        <div class="col-lg-3">
+            <div class="image-container">
+                <img (click)="openImageModal('https://covers.openlibrary.org/b/id/'+book.header.cover_i+'-L.jpg')"
+                    *ngIf="book.header.cover_i !==undefined; else noImage"
+                    [src]="'https://covers.openlibrary.org/b/id/'+book.header.cover_i+'-L.jpg'" />
+            </div>
+            <ng-template #noImage>
+                <img (click)="openImageModal('assets/images/no_cover.jpg')" class="book-card-img"
+                    src="assets/images/no_cover.jpg" alt="Book 1">
+            </ng-template>
+        </div>
+        <div class="content-container col-lg-9">
+            <p class="book-title"><b>{{book.title}}</b></p>
+            <a class="book-author" *ngFor="let author of book.header.author_name; let i=index"
+                (click)="authorClick(i)">{{author}}</a>
+            <p class="book-publishyear"><b>First published: </b>{{book.header.first_publish_year}}</p>
+            <p class="book-editioncount"><b>Edition count: </b>{{book.header.edition_count}}</p>
+
+        </div>
+    </div>
+    <div class="row book-details" *ngIf="book.header!==undefined">
+        <div class="col-lg-12">
+            <p *ngIf="book.description && getDescriptionValue(book.description)!==undefined" class="book-description">
+                <b>Description: </b>{{getDescriptionValue(book.description)}}</p>
+            <p *ngIf="book.header?.language!==undefined"><b>Languages:</b>
+                <span *ngFor="let language of book.header?.language; let last=last">
+                    {{languageNames[language]}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p class="book-subjects" *ngIf="book.subjects!==undefined"><b>Subjects: </b>
+                <span *ngFor="let subject of book.subjects; let last=last">
+                    {{subject}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p *ngIf="book.subject_places!==undefined"><b>Places: </b>
+                <span *ngFor="let places of book.subject_places; let last=last">
+                    {{places}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p *ngIf="book.subject_people!==undefined"><b>People: </b>
+                <span *ngFor="let person of book.subject_people; let last=last">
+                    {{person}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+            <p *ngIf="book.subject_times!==undefined"><b>Times: </b>
+                <span *ngFor="let time of book.subject_times; let last=last">
+                    {{time}}
+                    <span *ngIf="!last">, </span>
+                </span>
+            </p>
+        </div>
+    </div>
+</div>
